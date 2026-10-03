@@ -35,8 +35,11 @@ jobs:
         with:
           cache-provider: basic
 
-      - name: Install Android SDK 36
-        run: sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
+      - name: Set up Android SDK 36
+        uses: android-actions/setup-android@v4
+        with:
+          packages: "platform-tools platforms;android-36 build-tools;36.0.0"
+          log-accepted-android-sdk-licenses: false
 
       - name: Make Gradle wrapper executable
         run: chmod +x gradlew
