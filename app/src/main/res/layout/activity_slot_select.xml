@@ -4,12 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     >
 
     <ImageView
         android:id="@+id/imageViewFullscreen"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@null"
         android:scaleType="centerCrop"
         android:src="@drawable/homescreen"
 
@@ -22,27 +24,36 @@
         android:id="@+id/tvSlotTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/menu_panel"
         android:text="@string/select_slot"
         android:padding="16dp"
+        android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <LinearLayout
-        android:id="@+id/slotList"
+    <ScrollView
+        android:id="@+id/scrollSlots"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_marginVertical="16dp"
         android:layout_marginHorizontal="16dp"
+        android:background="@drawable/text_bg_rounded"
+        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/tvSlotTitle"
         app:layout_constraintBottom_toTopOf="@id/btnBackSlot"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/text_bg_rounded"
-        />
+        app:layout_constraintWidth_max="@dimen/list_content_max_width">
+
+        <LinearLayout
+            android:id="@+id/slotList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
     <Button
         android:id="@+id/btnBackSlot"
@@ -54,5 +65,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_max="@dimen/menu_content_max_width" />
 </androidx.constraintlayout.widget.ConstraintLayout>

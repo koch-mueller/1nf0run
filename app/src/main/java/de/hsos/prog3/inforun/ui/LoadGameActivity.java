@@ -66,17 +66,18 @@ public class LoadGameActivity extends AppCompatActivity {
     private LinearLayout makeSlotRow(int slotId, SaveSlotEntity s) {
         LinearLayout row = new LinearLayout(this);
         row.setOrientation(LinearLayout.VERTICAL);
-        row.setPadding(16, 16, 16, 16);
+        int padding = UiUnits.dp(this, 16);
+        row.setPadding(padding, padding, padding, padding);
 
         TextView title = new TextView(this);
         title.setText(getString(R.string.slot_title, slotId));
         title.setTextSize(20f);
-        title.setTextColor(Color.WHITE);
+        title.setTextColor(Color.BLACK);
         title.setTypeface(title.getTypeface(), android.graphics.Typeface.BOLD);
 
         TextView info = new TextView(this);
         info.setTextSize(16f);
-        info.setTextColor(Color.WHITE);
+        info.setTextColor(Color.BLACK);
         if (s == null) {
             info.setText(R.string.slot_empty);
         } else {
@@ -114,7 +115,7 @@ public class LoadGameActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        p.setMargins(0, 0, 0, 20);
+        p.setMargins(0, 0, 0, UiUnits.dp(this, 20));
         row.setLayoutParams(p);
 
         row.addView(title);

@@ -54,7 +54,7 @@ public class HighscoreActivity extends AppCompatActivity {
             TextView empty = new TextView(this);
             empty.setText(R.string.no_highscores);
             empty.setTextSize(16f);
-            empty.setTextColor(Color.WHITE);
+            empty.setTextColor(Color.BLACK);
             empty.setGravity(Gravity.CENTER_HORIZONTAL);
             highscoreList.addView(empty);
             return;
@@ -69,8 +69,13 @@ public class HighscoreActivity extends AppCompatActivity {
             TextView row = new TextView(this);
             row.setText(getString(R.string.highscore_row, rank, e.playerName, e.score, dateStr));
             row.setTextSize(16f);
-            row.setTextColor(Color.WHITE);
-            row.setPadding(8, 12, 8, 12);
+            row.setTextColor(Color.BLACK);
+            row.setPadding(
+                    UiUnits.dp(this, 8),
+                    UiUnits.dp(this, 12),
+                    UiUnits.dp(this, 8),
+                    UiUnits.dp(this, 12)
+            );
 
             highscoreList.addView(row);
             rank++;

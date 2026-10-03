@@ -73,7 +73,7 @@ public class SlotHubActivity extends AppCompatActivity {
                 slot.coins,
                 slot.unlockedLevel
         ));
-        tvInfo.setTextColor(Color.WHITE);
+        tvInfo.setTextColor(Color.BLACK);
         levelList.removeAllViews();
 
         for (int levelId = 1; levelId <= GameConstants.MAX_LEVEL; levelId++) {

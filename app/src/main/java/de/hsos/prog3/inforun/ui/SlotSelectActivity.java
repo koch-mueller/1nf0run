@@ -71,17 +71,18 @@ public class SlotSelectActivity extends AppCompatActivity {
     private LinearLayout makeSlotView(int slotId, SaveSlotEntity existing) {
         LinearLayout box = new LinearLayout(this);
         box.setOrientation(LinearLayout.VERTICAL);
-        box.setPadding(16, 16, 16, 16);
+        int padding = UiUnits.dp(this, 16);
+        box.setPadding(padding, padding, padding, padding);
 
         TextView title = new TextView(this);
         title.setText(getString(R.string.slot_title, slotId));
         title.setTextSize(20f);
-        title.setTextColor(Color.WHITE);
+        title.setTextColor(Color.BLACK);
         title.setTypeface(title.getTypeface(), android.graphics.Typeface.BOLD);
 
         TextView info = new TextView(this);
         info.setTextSize(16f);
-        info.setTextColor(Color.WHITE);
+        info.setTextColor(Color.BLACK);
         if (existing == null) {
             info.setText(R.string.slot_empty);
         } else {
@@ -107,7 +108,7 @@ public class SlotSelectActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        p.setMargins(0, 0, 0, 20);
+        p.setMargins(0, 0, 0, UiUnits.dp(this, 20));
 
         box.addView(title);
         box.addView(info);
